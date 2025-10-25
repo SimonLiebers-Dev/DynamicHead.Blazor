@@ -16,7 +16,7 @@
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>Blazor;Head;HeadContent;HeadOutlet</PackageTags>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <WarningsAsErrors>RZ10012</WarningsAsErrors>
     </PropertyGroup>
 
