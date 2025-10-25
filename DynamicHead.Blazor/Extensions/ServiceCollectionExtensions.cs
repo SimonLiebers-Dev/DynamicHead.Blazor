@@ -51,7 +51,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddDynamicHead(this IServiceCollection services,
         ServiceLifetime lifetime = ServiceLifetime.Scoped)
     {
-        var descriptor = new ServiceDescriptor(typeof(DynamicHeadService), typeof(DynamicHeadService), lifetime);
+        var descriptor = new ServiceDescriptor(typeof(IDynamicHeadService), typeof(DynamicHeadService), lifetime);
         services.Add(descriptor);
         return services;
     }
