@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicHead.Blazor", "DynamicHead.Blazor\DynamicHead.Blazor.csproj", "{B74C14B2-DC66-4499-81A3-3A48B4CFA1B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicHead.Blazor.Tests", "DynamicHead.Blazor.Tests\DynamicHead.Blazor.Tests.csproj", "{830892C6-56FD-4CC6-A492-6320F0C29656}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B74C14B2-DC66-4499-81A3-3A48B4CFA1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74C14B2-DC66-4499-81A3-3A48B4CFA1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74C14B2-DC66-4499-81A3-3A48B4CFA1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74C14B2-DC66-4499-81A3-3A48B4CFA1B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830892C6-56FD-4CC6-A492-6320F0C29656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830892C6-56FD-4CC6-A492-6320F0C29656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830892C6-56FD-4CC6-A492-6320F0C29656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830892C6-56FD-4CC6-A492-6320F0C29656}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

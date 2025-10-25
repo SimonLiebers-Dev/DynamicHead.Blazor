@@ -1,0 +1,35 @@
+@inject IDynamicHeadService HeadService
+
+@implements IDisposable
+
+@foreach (var fragment in _fragments)
+{
+    @fragment
+}
+
+@code {
+    private List<RenderFragment> _fragments = [];
+
+    protected override void OnInitialized()
+    {
+        HeadService.OnChanged += OnHeadChanged;
+        UpdateContent();
+    }
+
+    private void OnHeadChanged()
+    {
+        InvokeAsync(() =>
+        {
+            UpdateContent();
+            StateHasChanged();
+        });
+    }
+
+    private void UpdateContent() => _fragments = HeadService.GetRenderFragments();
+
+    public void Dispose()
+    {
+        HeadService.OnChanged -= OnHeadChanged;
+    }
+
+}

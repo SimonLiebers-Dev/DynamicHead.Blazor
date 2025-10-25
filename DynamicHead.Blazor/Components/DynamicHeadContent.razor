@@ -1,0 +1,56 @@
+@inject IDynamicHeadService HeadService
+
+@implements IDisposable
+
+@code {
+
+    /// <summary>
+    /// Defines the head content (such as &lt;title&gt;, &lt;meta&gt;, or &lt;link&gt; tags)
+    /// that should be dynamically registered with the application's
+    /// <see cref="DynamicHeadService"/>.
+    /// </summary>
+    /// <remarks>
+    /// The <see cref="DynamicHeadContent"/> component allows any part of a Blazor application
+    /// to declaratively provide content that will be rendered within the document's
+    /// &lt;head&gt; element via a corresponding
+    /// <see cref="Components.DynamicHeadOutlet"/>.
+    /// <para>
+    /// When the component is rendered, its <see cref="ChildContent"/> is registered
+    /// with the <see cref="DynamicHeadService"/>.  
+    /// When the component is removed or disposed, the content is automatically unregistered.
+    /// </para>
+    /// </remarks>
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private Guid _id;
+    private RenderFragment? _previousContent;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        if (ChildContent is not null)
+        {
+            _id = HeadService.Register(ChildContent);
+            _previousContent = ChildContent;
+        }
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (_previousContent is not null && !ReferenceEquals(_previousContent, ChildContent) && ChildContent is not null)
+        {
+            HeadService.Unregister(_id);
+            _id = HeadService.Register(ChildContent);
+            _previousContent = ChildContent;
+        }
+    }
+
+    public void Dispose()
+    {
+        if (_id != Guid.Empty)
+            HeadService.Unregister(_id);
+    }
+
+}
