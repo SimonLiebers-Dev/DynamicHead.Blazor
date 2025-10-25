@@ -18,15 +18,15 @@ public class ServiceCollectionExtensionsTests
         var provider = services.BuildServiceProvider();
 
         // Assert
-        var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DynamicHeadService));
+        var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(IDynamicHeadService));
         Assert.Multiple(() =>
         {
             Assert.That(descriptor, Is.Not.Null, "Service descriptor should exist.");
             Assert.That(descriptor!.Lifetime, Is.EqualTo(ServiceLifetime.Scoped), "Default lifetime should be Scoped.");
         });
 
-        var instance1 = provider.GetRequiredService<DynamicHeadService>();
-        var instance2 = provider.CreateScope().ServiceProvider.GetRequiredService<DynamicHeadService>();
+        var instance1 = provider.GetRequiredService<IDynamicHeadService>();
+        var instance2 = provider.CreateScope().ServiceProvider.GetRequiredService<IDynamicHeadService>();
 
         // Each scope should get a different instance
         Assert.That(instance1, Is.Not.SameAs(instance2));
@@ -43,7 +43,7 @@ public class ServiceCollectionExtensionsTests
         var provider = services.BuildServiceProvider();
 
         // Assert
-        var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DynamicHeadService));
+        var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(IDynamicHeadService));
         Assert.Multiple(() =>
         {
             Assert.That(descriptor, Is.Not.Null);
@@ -51,8 +51,8 @@ public class ServiceCollectionExtensionsTests
         });
 
         // Verify Singleton behavior: same instance everywhere
-        var instance1 = provider.GetRequiredService<DynamicHeadService>();
-        var instance2 = provider.GetRequiredService<DynamicHeadService>();
+        var instance1 = provider.GetRequiredService<IDynamicHeadService>();
+        var instance2 = provider.GetRequiredService<IDynamicHeadService>();
         Assert.That(instance1, Is.SameAs(instance2));
     }
 
@@ -83,7 +83,7 @@ public class ServiceCollectionExtensionsTests
         });
 
         // Should have two separate service descriptors (per call)
-        var count = services.Count(d => d.ServiceType == typeof(DynamicHeadService));
+        var count = services.Count(d => d.ServiceType == typeof(IDynamicHeadService));
         Assert.That(count, Is.EqualTo(2));
     }
 }
