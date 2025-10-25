@@ -3,7 +3,6 @@
 
 [![Build](https://github.com/SimonLiebers-Dev/DynamicHead.Blazor/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/simonliebers/DynamicHead.Blazor/actions)
 [![NuGet](https://img.shields.io/nuget/v/DynamicHead.Blazor.svg?style=flat-round&logo=nuget)](https://www.nuget.org/packages/DynamicHead.Blazor/)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/DynamicHead.Blazor.svg?style=flat-round)](https://www.nuget.org/packages/DynamicHead.Blazor/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ---
